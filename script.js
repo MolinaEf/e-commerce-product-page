@@ -15,12 +15,18 @@ const productAdded = document.getElementById("product-added")
 const quantityAdded = document.getElementById("quantity-added")
 const finalPriceAdded = document.getElementById("final-price-added")
 const emptyCartText = document.getElementById("empty-cart-text")
-
 const removeFromCartBtn = document.getElementById("remove-from-cart")
-
+const thumbnailLabels = document.querySelectorAll("#thumbnail-wrapper label")
+const lightbox = document.getElementById("lightbox");
+const lightboxThumbnails = document.querySelectorAll("#light-box-thumbnails label")
+const lightboxImg = document.getElementById("lightbox-img")
+const previousSwapLb = document.getElementById("previous-swap-lb")
+const nextSwapLb = document.getElementById("next-swap-lb")
+const closeLightBox = document.getElementById("close-lightbox")
 
 let currentProductImg = 1
 let quantityProduct = 0
+let currentLightboxImg = 1
 
 function checkforEmptyCart(){
     if (quantityProduct === 0) {
@@ -32,14 +38,14 @@ function checkforEmptyCart(){
 
 
 navMenuBtn.addEventListener("click", () => {
-    console.log("clicked")
-    navMenu.classList.toggle("hide")
+    console.log("clicked");
+    navMenu.classList.add("active");
     overlay.classList.toggle("visible")
 })
 
 navClose.addEventListener("click", () => {
     console.log("clicked");
-    navMenu.classList.toggle("hide");
+    navMenu.classList.remove("active");
     overlay.classList.toggle("visible");
 })
 
@@ -104,4 +110,72 @@ cartContentBtn.addEventListener("click", () => {
 removeFromCartBtn.addEventListener("click", () => {
     quantityProduct = 0;
     checkforEmptyCart();
+})
+
+thumbnailLabels.forEach(label => {
+    label.addEventListener("click", () => {
+        productImg.src = label.dataset.img;
+        currentProductImg = parseInt(label.getAttribute("data-value"));
+        thumbnailLabels.forEach(label => {
+            label.classList.remove("active");
+        })
+        label.classList.add("active");
+    })
+})
+
+productImg.addEventListener("click", () => {
+    lightboxImg.src = `images/image-product-${currentProductImg}.jpg`;
+    currentLightboxImg = currentProductImg
+    lightbox.classList.toggle("hide");
+    overlay.classList.toggle("visible");
+    lightboxThumbnails.forEach(label => {
+        label.classList.remove("active");
+    })
+    const activeLabel = document.querySelector(`[for="thumb${currentProductImg}-lb"]`);
+    activeLabel.classList.add("active");
+})
+
+lightboxThumbnails.forEach(label => {
+    label.addEventListener("click", () => {
+        lightboxImg.src = label.dataset.img;
+        currentLightboxImg = parseInt(label.getAttribute("data-value"))
+        lightboxThumbnails.forEach(label => {
+            label.classList.remove("active");
+        })
+        label.classList.add("active");
+    })
+})
+
+previousSwapLb.addEventListener("click", () => {
+    currentLightboxImg -= 1;
+    if (currentLightboxImg === 0) {
+        currentLightboxImg += 4
+    }
+    lightboxImg.src = `images/image-product-${currentLightboxImg}.jpg`;
+    lightboxThumbnails.forEach(label => {
+        label.classList.remove("active");
+    })
+    const activeLabel = document.querySelector(`[for="thumb${currentLightboxImg}-lb"]`);
+    activeLabel.classList.add("active");
+})
+
+nextSwapLb.addEventListener("click", () => {
+    console.log(currentLightboxImg)
+    currentLightboxImg += 1;
+    console.log(currentLightboxImg)
+    if (currentLightboxImg === 5) {
+        currentLightboxImg -= 4
+    }
+    console.log(currentLightboxImg)
+    lightboxImg.src = `images/image-product-${currentLightboxImg}.jpg`;
+    lightboxThumbnails.forEach(label => {
+        label.classList.remove("active");
+    })
+    const activeLabel = document.querySelector(`[for="thumb${currentLightboxImg}-lb"]`);
+    activeLabel.classList.add("active")
+})
+  
+closeLightBox.addEventListener("click", () => {
+    lightbox.classList.toggle("hide");
+    overlay.classList.toggle("visible");
 })
