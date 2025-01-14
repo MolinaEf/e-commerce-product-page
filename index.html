@@ -21,13 +21,48 @@
       <img src="images\logo.svg" alt="Logo" class="sneakers-logo">
     </div>
     <div class="right-nav">
-      <button class="nav-cart">
-        <img src="images\icon-cart.svg" alt="Cart icon" class="nav-cart-icon">
-      </button>
+      <div class="nav-cart-container">
+        <button class="nav-cart" id="cart-btn">
+          <img src="images\icon-cart.svg" alt="Cart icon" class="nav-cart-icon">
+          <span class="cart-counter hide" id="cart-counter">2</span>
+        </button>
+        <div class="cart-dropdown hide" id="cart-container">
+          <div class="top-cart-content">
+            <h4 class="top-cart-text bold">Cart</h4>
+          </div>
+          <hr>
+          
+          <div class="bottom-cart-content">
+            <p class="empty-cart-text bold" id="empty-cart-text">Your cart is empty.</p>
+            <div class="wrapper hide" id="product-added">
+              <div class="product-in-cart-info">
+                <div class="left-product-info">
+                  <div class="container-of-img-in-cart">
+                    <img src="images\image-product-1-thumbnail.jpg" class="product-in-cart-img">
+                  </div>
+                  <div class="name-and-price">
+                    <div class="name">Fall Limited Edition Sneakers</div>
+                    <div class="price-and-quantity">
+                      <span class="original-price-and-quantity" id="quantity-added">$125.00 x 3 </span>
+                      <span class="final-price bold" id="final-price-added"> $375.00</span>
+                    </div>
+                  </div>
+                </div>
+                <button class="remove-from-cart container-of-img-in-cart" id="remove-from-cart">
+                  <img class="delete-icon"  src="images\icon-delete.svg" alt="remove-from-cart">
+                </button>
+              </div>
+              <button class="checkout-btn bold" id="checkout-btn">
+                Checkout
+              </button>
+            </div>
+          </div>
+      </div>
+      </div>
       <img src="images\image-avatar.png" alt="Avatar" class="nav-avatar">
     </div>
     <div class="nav-menu hide" id="nav-menu">
-        <button class="nav-close">
+        <button class="nav-close" id="nav-close">
           <img src="images\icon-close.svg" alt="Close icon" class="nav-close-icon">
         </button>
         <ul class="nav-options">
@@ -43,17 +78,17 @@
 <main>
   
     <section class="product-img">
-      <button class="previous-swap img-swap">
+      <button class="previous-swap img-swap" id="previous-swap">
         <img src="images\icon-previous.svg" alt="Previous icon" class="previous-icon swap-icon">
       </button>
-      <img src="images\image-product-1.jpg" alt="Product 1" class="product-img-1">
-      <button class="next-swap img-swap">
+      <img src="images\image-product-1.jpg" alt="Product 1" class="product-img-1" id="product-img">
+      <button class="next-swap img-swap" id="next-swap">
         <img src="images\icon-next.svg" alt="Previous icon" class="next-icon swap-icon">
       </button>
     </section>
   
     <section class="product-info">
-      <h3>SNEAKER COMPANY</h3>
+      <h3 class="bold">SNEAKER COMPANY</h3>
       <h2>Fall Limited Edition Sneakers</h2>
       <p>
         These low-profile sneakers are your perfect casual wear companion. Featuring a
@@ -62,27 +97,27 @@
   
     <div class="prices">
       <span class="left-prices">
-        <span class="current-price">$125.00</span>
-        <span class="discount">50%</span>
+        <span class="current-price bold">$125.00</span>
+        <span class="discount bold">50%</span>
       </span>
-      <div class="old-price">$250.00</div>
+      <div class="old-price bold">$250.00</div>
     </div>
   
     <div class="quantity-selector">
-      <button class="minus-quantity-button quantity-button">
+      <button class="minus-quantity-button quantity-button" id="minus">
         <img src="images\icon-minus.svg" alt="Minus icon" class="quantity-icon">
       </button>
-        <span class="quantity-text">0</span>
-      <button class="plus-quantity-button quantity-button">
+        <span class="quantity-text bold" id="quantity-number">0</span>
+      <button class="plus-quantity-button quantity-button" id="plus">
         <img src="images\icon-plus.svg" alt="Plus icon" class="quantity-icon">
       </button>
     </div>
   
-      <button class="add-to-cart">
+      <button class="add-to-cart" id="add-to-cart">
         <svg width="22" height="20" xmlns="http://www.w3.org/2000/svg">
           <path class="cart-svg" d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z" fill="#69707D" fill-rule="nonzero"/>
         </svg>
-        <span class="add-to-cart-text">Add to cart</span>
+        <span class="add-to-cart-text bold">Add to cart</span>
       </button>
 
   </section>
