@@ -101,6 +101,7 @@ button{
     height: 80vw;
     object-fit: cover;
     object-position: center;
+    pointer-events: none; 
 }
 
 .img-swap{
@@ -560,7 +561,8 @@ button:hover{
         height: auto; /* Maintains aspect ratio */
         max-height: 100vh; /* Prevents excessive row growth */
         object-fit: contain; /* Ensures the full image is visible without cropping */
-        display: block; /* Removes extra space caused by inline elements */
+        display: block; 
+        pointer-events: auto; /* Removes extra space caused by inline elements */
     }
 
     .thumbnail-wrapper{
