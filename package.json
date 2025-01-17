@@ -1,0 +1,24 @@
+{
+  "name": "e-commerce-product-page",
+  "version": "1.0.0",
+  "description": "![Design preview for the E-commerce product page coding challenge](./design/desktop-preview.jpg)",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MolinaEf/e-commerce-product-page.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MolinaEf/e-commerce-product-page/issues"
+  },
+  "homepage": "https://github.com/MolinaEf/e-commerce-product-page#readme",
+  "devDependencies": {
+    "stylelint": "^16.13.2",
+    "stylelint-config-standard": "^37.0.0"
+  }
+}
